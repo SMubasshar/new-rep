@@ -1,3 +1,5 @@
+from dolfin import *; from mshr import *
+import dolfin.common.plotting as fenicsplot
 # Define rectangular domain 
 L = 4
 H = 2
