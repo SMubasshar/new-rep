@@ -93,7 +93,7 @@ residual = ( - p*div(v)*dx + inner(grad(u), grad(v))*dx + div(u)*q*dx +
 solve(residual == 0, w) 
 
 
-!rm results-NS/*
+#!rm results-NS/*
 
 # volumetric flow rate Q
 n = FacetNormal(mesh)
