@@ -148,13 +148,13 @@ print("Pressure Drop (Delta p):", delta_p)
 
 
 # Plot solution
-#plt.figure()
-#plot(u, title="Velocity")
+plt.figure()
+plot(u, title="Velocity")
 plt.savefig("velocity.png")
-#plt.figure()
-#plot(p, title="Pressure")
+plt.figure()
+plot(p, title="Pressure")
 plt.savefig("pressure.png")        
-#plt.show()
+plt.show()
 
 # Export files
 #!tar -czvf results-Stokes.tar.gz results-NS
