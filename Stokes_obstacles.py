@@ -1,5 +1,6 @@
 from dolfin import *; from mshr import *
 import dolfin.common.plotting as fenicsplot
+from matplotlib import pyplot as plt
 # Define rectangular domain 
 L = 4
 H = 2
