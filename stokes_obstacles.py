@@ -1,43 +1,9 @@
 import numpy as np
-import time
-
-# Install FEniCS
-try:
-    import dolfin
-except ImportError as e:
-    !apt-get install -y -qq software-properties-common
-    !add-apt-repository -y ppa:fenics-packages/fenics
-    !apt-get update -qq
-    !apt install -y --no-install-recommends fenics
-    !sed -i "s|#if PETSC_VERSION_MAJOR == 3 && PETSC_VERSION_MINOR <= 8 && PETSC_VERSION_RELEASE == 1|#if 1|" /usr/include/dolfin/la/PETScLUSolver.h
-    !rm -rf /usr/lib/python3/dist-packages/mpi4py*
-    !rm -rf /usr/lib/python3/dist-packages/petsc4py*
-    !rm -rf /usr/lib/python3/dist-packages/slepc4py*
-    !rm -rf /usr/lib/petsc/lib/python3/dist-packages/dolfin*
-    !rm -rf /usr/lib/petsc/lib/python3/dist-packages/mshr*
-    !wget "https://drive.google.com/uc?export=download&id=1cT_QBJCOW_eL3BThnval3bcpb8o0w-Ad" -O /tmp/mpi4py-2.0.0-cp37-cp37m-linux_x86_64.whl
-    !wget "https://drive.google.com/uc?export=download&id=119i49bxlGn1mrnhTNmOvM4BqmjrT9Ppr" -O /tmp/petsc4py-3.7.0-cp37-cp37m-linux_x86_64.whl
-    !wget "https://drive.google.com/uc?export=download&id=1-1tVfu8qz3bRC2zvR8n3RESpesWqNnn6" -O /tmp/slepc4py-3.7.0-cp37-cp37m-linux_x86_64.whl
-    !wget "https://drive.google.com/uc?export=download&id=1-3qY4VIJQaXVO1HfGQIzTIURIeJbvX-9" -O /tmp/fenics_dolfin-2019.2.0.dev0-cp37-cp37m-linux_x86_64.whl
-    !wget "https://drive.google.com/uc?export=download&id=1-5SMjgjMuee_9WLeYtGe8N_lvipWEN7W" -O /tmp/mshr-2019.2.0.dev0-cp37-cp37m-linux_x86_64.whl
-    !pip3 install /tmp/mpi4py-2.0.0-cp37-cp37m-linux_x86_64.whl --upgrade
-    !pip3 install /tmp/petsc4py-3.7.0-cp37-cp37m-linux_x86_64.whl --upgrade
-    !pip3 install /tmp/slepc4py-3.7.0-cp37-cp37m-linux_x86_64.whl --upgrade
-    !pip3 install /tmp/fenics_dolfin-2019.2.0.dev0-cp37-cp37m-linux_x86_64.whl --upgrade
-    !pip3 install /tmp/mshr-2019.2.0.dev0-cp37-cp37m-linux_x86_64.whl --upgrade
-    !pip3 -q install --upgrade sympy
-    import dolfin
-
+import time   
+import dolfin
 from dolfin import *; from mshr import *
-
 import dolfin.common.plotting as fenicsplot
-
 from matplotlib import pyplot as plt
-
-
-
-
-
 
 # Define rectangular domain 
 L = 4
