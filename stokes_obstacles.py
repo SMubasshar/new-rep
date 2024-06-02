@@ -118,33 +118,33 @@ p_outlet = p_values[outlet_vertex_indices[0]]  # Assuming there's only one verte
 delta_p = p_outlet - p_inlet
 
 # Calculate modulus of Q and modulus of delta P
-Q_magnitude = sqrt(Q**2)
-delta_p_magnitude = abs(delta_p)
+#Q_magnitude = sqrt(Q**2)
+#delta_p_magnitude = abs(delta_p)
 
 # Compute the ratio of Q magnitude to delta P magnitude
-ratio = Q_magnitude / delta_p_magnitude
+#ratio = Q_magnitude / delta_p_magnitude
 
 # Output the result
-print("Ratio of |Q| to |delta P|:", ratio)
+#print("Ratio of |Q| to |delta P|:", ratio)
 
 # Define cross-sectional area A
-A = H
+#A = H
 
 # Calculate Darcy velocity q
-q = Q / A
+#q = Q / A
 
 # Output Darcy velocity
-print("Darcy Velocity (q):", q)
-q1_magnitude = sqrt(q**2)
+#print("Darcy Velocity (q):", q)
+#q1_magnitude = sqrt(q**2)
 
 # Compute the ratio of q magnitude to delta P magnitude
-q_ratio = q1_magnitude / delta_p_magnitude
-print("Ratio of |q| to |delta P|:", q_ratio)
+#q_ratio = q1_magnitude / delta_p_magnitude
+#print("Ratio of |q| to |delta P|:", q_ratio)
 
 # Output pressure drop
-print("(p_inlet):", p_inlet)
-print("(p_outlet):", p_outlet)
-print("Pressure Drop (Delta p):", delta_p)
+#print("(p_inlet):", p_inlet)
+#print("(p_outlet):", p_outlet)
+#print("Pressure Drop (Delta p):", delta_p)
 
 
 # Plot solution
@@ -161,10 +161,10 @@ plt.show()
 #files.download('results-Stokes.tar.gz')
 
 # Plot pressure and ratio
-plt.figure()
-plt.plot(p_values, [ratio]*len(p_values), linestyle='-')
-plt.xlabel('Pressure')
-plt.ylabel('|Q| / |ΔP|')
-plt.title('For V_in=4')
-plt.grid(True)
-plt.show()
+#plt.figure()
+#plt.plot(p_values, [ratio]*len(p_values), linestyle='-')
+#plt.xlabel('Pressure')
+#plt.ylabel('|Q| / |ΔP|')
+#plt.title('For V_in=4')
+#plt.grid(True)
+#plt.show()
