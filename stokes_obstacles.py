@@ -123,6 +123,34 @@ plot(u, title="Velocity")
 #plt.savefig("velocity.png")
 plt.figure()
 plot(p, title="Pressure")
+
+# Define the stress tensor
+mu = 1.0  # Dynamic viscosity
+I = Identity(2)
+sigma = 2 * mu * sym(grad(u)) - p * I
+
+# Define facet normal
+n = FacetNormal(mesh)
+
+# Mark obstacle boundaries
+obstacle_marker = MeshFunction("size_t", mesh, mesh.topology().dim() - 1, 0)
+for f in facets(mesh):
+    mp = f.midpoint()
+    if mp.distance(Point(1.5, 0.25 * H)) < 0.21:  # slightly larger than obstacle radius
+        obstacle_marker[f] = 1
+
+# Measure for the obstacle boundary
+ds_obstacle = Measure("ds", domain=mesh, subdomain_data=obstacle_marker)
+
+# Compute force on the obstacle by integrating each component separately
+force_x = assemble((dot(sigma, n)[0]) * ds_obstacle(1))
+force_y = assemble((dot(sigma, n)[1]) * ds_obstacle(1))
+
+force = (force_x, force_y)
+
+print(f"Force on the first obstacle: {force}")
+
+
 #plt.savefig("pressure.png")        
 plt.show()
 
