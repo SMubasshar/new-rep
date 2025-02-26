@@ -37,7 +37,7 @@ class PeriodicBoundary(SubDomain):
         y[0] = x[0]
         y[1] = x[1]+H    # Map lower boundary to upper boundary
 
-# Create periodic boundary condition
+# Create periodic boundary_condition
 pbc = PeriodicBoundary()
 
 
